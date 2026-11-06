@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inklu — Apresentação</title>
+    <link rel="stylesheet" href="https://unpkg.com/shiraha" />
+    <link rel="stylesheet" href="app.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <video
+      id="intro-video"
+      src="Content/Inklu.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      aria-label="Vídeo de introdução da Inklu"
+    ></video>
+
+    <main id="deck" class="deck" hidden>
+      <canvas id="slide-canvas" aria-label="Slide da apresentação"></canvas>
+      <p id="deck-status" class="deck__status" role="status">Carregando apresentação…</p>
+      <p id="deck-counter" class="deck__counter" hidden>
+        <span id="slide-number">1</span> / <span id="slide-total">–</span>
+      </p>
+    </main>
+
+    <div id="controls-launcher" class="controls-launcher">
+      <button
+        id="open-controls"
+        class="pill"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="controls"
+      >
+        Controles
+      </button>
+    </div>
+
+    <dialog id="controls" class="sheet" aria-labelledby="controls-title">
+      <form method="dialog" class="sheet__surface">
+        <header class="sheet__header">
+          <h2 id="controls-title">Controles</h2>
+          <p class="sheet__slide">Slide <strong id="modal-slide">–</strong></p>
+        </header>
+
+        <div class="field">
+          <label class="switch" for="sound-toggle">
+            <span>Som do vídeo</span>
+            <input id="sound-toggle" type="checkbox" role="switch" />
+          </label>
+        </div>
+
+        <div class="field">
+          <label for="idle-range">
+            Voltar ao vídeo sem interação após
+            <output id="idle-output" for="idle-range">2 min</output>
+          </label>
+          <input id="idle-range" type="range" min="15" max="600" step="15" value="120" />
+        </div>
+
+        <div class="field">
+          <div class="sheet__actions">
+            <button id="video-play" class="btn btn--tonal" type="button">Pausar vídeo</button>
+            <button id="video-restart" class="btn btn--text" type="button">Reiniciar vídeo</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="sheet__actions">
+            <button id="slide-prev" class="btn btn--text" type="button">Anterior</button>
+            <button id="slide-next" class="btn btn--text" type="button">Próximo</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="sheet__actions">
+            <button id="back-to-video" class="btn btn--tonal" type="button">Voltar ao vídeo</button>
+            <button id="fullscreen-toggle" class="btn btn--text" type="button">Tela cheia</button>
+          </div>
+        </div>
+
+        <footer class="sheet__footer">
+          <button class="btn btn--text" type="submit" value="close">Fechar</button>
+        </footer>
+      </form>
+    </dialog>
+  </body>
+</html>

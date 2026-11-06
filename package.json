@@ -1,0 +1,12 @@
+{
+  "name": "loopinklu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Apresentação Inklu: vídeo em loop em tela cheia e slides controlados por interação",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^6.5.438"
+  }
+}
